@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d0e">
+  <meta name="description" content="CHECKOUT — an experimental supermarket sound sampler.">
+  <title>CHECKOUT — Supermarket Sampler</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="masthead">
+        <span class="ornament" aria-hidden="true">✟</span>
+        <div>
+          <p class="eyebrow">FIELD RECORDING EXPERIMENT № 001</p>
+          <h1>CHECKOUT</h1>
+          <p class="tagline">THINGS THAT BEEP, CLICK, PRINT AND HUM.</p>
+        </div>
+        <span class="ornament" aria-hidden="true">✟</span>
+      </div>
+      <div class="header-rule">
+        <span>SUPERMARKET SAMPLER</span>
+        <span>EST. 2026</span>
+        <span class="online"><i></i> AUDIO SYSTEM <b id="statusDisplay">STANDBY</b></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro-grid">
+        <div class="intro-copy">
+          <p class="section-kicker">// A SMALL MACHINE FOR ORDINARY NOISE</p>
+          <h2>THE STORE IS<br><em>OPEN.</em></h2>
+          <p class="intro-text">Turn scanner beeps, receipt printers, cash drawers and late-night refrigerator hum into a tiny rhythm machine. Built for strange little noises and accidental music.</p>
+        </div>
+        <aside class="field-note">
+          <div class="note-top"><span>FIELD NOTE 001</span><span>✦</span></div>
+          <p class="note-title">CURRENT LOCATION:</p>
+          <p class="note-value">AISLE 04 / CHECKOUT 02</p>
+          <div class="note-divider"></div>
+          <p class="note-title">STATUS:</p>
+          <p class="note-value red">NO CUSTOMS. NO REFUNDS.</p>
+          <p class="note-small">Best played after closing time.</p>
+        </aside>
+      </section>
+
+      <section class="instrument" aria-label="CHECKOUT sampler">
+        <div class="instrument-heading">
+          <div>
+            <p class="section-kicker">✟ INSTRUMENT PANEL ✟</p>
+            <h2>THE COUNTER</h2>
+          </div>
+          <div class="readout" aria-live="polite">
+            <span class="readout-label">BANK</span>
+            <strong id="groupDisplay">CHECKOUT</strong>
+            <span class="readout-separator">/</span>
+            <strong id="bpmDisplay">124 BPM</strong>
+          </div>
+        </div>
+
+        <nav class="bank-tabs" aria-label="Sample banks">
+          <button class="bank-tab active" data-group="CHECKOUT" type="button">A / CHECKOUT</button>
+          <button class="bank-tab" data-group="MONEY" type="button">B / MONEY</button>
+          <button class="bank-tab" data-group="STORE" type="button">C / STORE</button>
+          <button class="bank-tab" data-group="HUMAN" type="button">D / HUMAN</button>
+        </nav>
+
+        <div id="pads" class="pads" aria-label="Sample pads"></div>
+
+        <div class="sample-toolbar">
+          <div class="selected-readout">
+            <span class="tiny-label">SELECTED SAMPLE</span>
+            <strong id="selectedPad">NONE</strong>
+          </div>
+          <label class="load-button">
+            <span>↑ LOAD AUDIO</span>
+            <input id="fileInput" type="file" accept="audio/*,.wav" hidden>
+          </label>
+        </div>
+
+        <section class="sequencer-section" aria-label="Step sequencer">
+          <div class="sequencer-heading">
+            <div>
+              <p class="section-kicker">// RHYTHM / LOOP</p>
+              <h3>16-STEP SEQUENCER</h3>
+            </div>
+            <span class="sequence-note">ONE BAR · 4/4</span>
+          </div>
+          <div class="sequencer-viewport">
+            <div id="stepGrid" class="step-grid"></div>
+          </div>
+        </section>
+
+        <div class="transport">
+          <div class="transport-main">
+            <button id="playButton" class="control-button primary" type="button">▶ PLAY</button>
+            <button id="recordButton" class="control-button record" type="button">● REC</button>
+            <button id="clearButton" class="control-button" type="button">CLEAR</button>
+            <button id="randomButton" class="control-button" type="button">RANDOM</button>
+          </div>
+          <button id="exportButton" class="control-button export" type="button">↓ EXPORT WAV</button>
+        </div>
+
+        <div class="parameter-row">
+          <label class="parameter">
+            <span><b>TEMPO</b><output id="bpmOutput">124 BPM</output></span>
+            <input id="bpmSlider" type="range" min="60" max="180" value="124">
+          </label>
+          <label class="parameter">
+            <span><b>MASTER LEVEL</b><output id="volumeOutput">80%</output></span>
+            <input id="volumeSlider" type="range" min="0" max="1" value="0.8" step="0.01">
+          </label>
+        </div>
+
+        <div class="instrument-footer">
+          <span>12 PADS</span><span>16 STEPS</span><span>WEB AUDIO</span><span>NO EXTERNAL LIBRARIES</span>
+        </div>
+      </section>
+
+      <section class="howto-grid">
+        <div class="howto">
+          <p class="section-kicker">✟ HOW TO OPERATE ✟</p>
+          <h2>PRESS A BUTTON.<br><em>MAKE A MESS.</em></h2>
+          <p>Choose a bank, tap a pad to audition it, then click steps to build a loop. Load your own recording onto the selected pad to replace its built-in demo sound.</p>
+        </div>
+        <div class="key-reference">
+          <div class="key-title">KEYBOARD MAP</div>
+          <div class="key-row"><kbd>Q W E</kbd><span>PADS 01–03</span></div>
+          <div class="key-row"><kbd>A S D</kbd><span>PADS 04–06</span></div>
+          <div class="key-row"><kbd>Z X C</kbd><span>PADS 07–09</span></div>
+          <div class="key-row"><kbd>1 2 3</kbd><span>PADS 10–12</span></div>
+          <div class="key-row"><kbd>SPACE</kbd><span>PLAY / STOP</span></div>
+          <div class="key-row"><kbd>R</kbd><span>ARM RECORD</span></div>
+          <div class="key-row"><kbd>E</kbd><span>EXPORT WAV</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>CHECKOUT / SUPERMARKET SAMPLER</span>
+      <span>THINGS I MAKE, BREAK AND OCCASIONALLY FINISH.</span>
+      <span>✟ END OF RECEIPT ✟</span>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
